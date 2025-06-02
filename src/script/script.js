@@ -119,6 +119,9 @@ const renderMoviesCards = (moviesArray, container, mode = "search") => {
         if (watchlistedArray.length === 0) {
           watchlistMessage.classList.remove("hidden");
           watchlistMoviesContainer.classList.add("hidden");
+          //   if ((searchInput.value = "")) {
+          //     moviesData = [];
+          //   }
           renderMoviesCards(moviesData, searchMoviesContainer, "search");
         }
       });
@@ -132,7 +135,9 @@ const goToSearchPage = () => {
   headerTitle.textContent = "Find your film";
   togglePageBtn.textContent = "My Watchlist";
   togglePageBtn.dataset.page = "watchlist";
-  renderMoviesCards(moviesData, searchMoviesContainer, "search");
+  if (moviesData.length === 0) {
+    explore.classList.remove("hidden");
+  } else renderMoviesCards(moviesData, searchMoviesContainer, "search");
 };
 
 const goToWatchlistPage = () => {
@@ -168,6 +173,7 @@ searchInput.addEventListener("input", (e) => {
   if (query === "") {
     explore.classList.remove("hidden");
     searchMoviesContainer.innerHTML = "";
+    moviesData = [];
     return;
   }
   searchMovies(query);
