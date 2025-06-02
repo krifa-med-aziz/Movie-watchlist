@@ -6,6 +6,7 @@
     <title>Find Your Movie</title>
     <link rel="stylesheet" href="./src/style/style.css" />
     <script defer src="./src/script/script.js"></script>
+    <link rel="shortcut icon" href="./src/imgs/logo.png" />
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,21 +19,39 @@
     <header>
       <h1 class="title">Find your film</h1>
       <nav>
-        <a href="./watchlist.html">My Watchlist</a>
+        <button id="toggle-page-btn" data-page="watchlist">My Watchlist</button>
         <button id="dark-mode-btn">Dark Mode</button>
       </nav>
     </header>
     <main>
-      <div class="search-container">
-        <input type="search" placeholder="Search for a movie" id="movieInput" />
-        <button>Search</button>
-      </div>
-      <div class="app-container">
-        <div class="explore">
-          <img src="./src/imgs/exploring.png" alt="explore" />
-          <p>Start Exploring</p>
+      <div class="searchPage">
+        <div class="search-container">
+          <input
+            type="search"
+            placeholder="Search for a movie"
+            id="movieInput"
+          />
+          <button>Search</button>
         </div>
-        <div class="movies-container"></div>
+        <div class="app-container">
+          <div class="explore">
+            <img src="./src/imgs/exploring.png" alt="explore" />
+            <p>Start Exploring</p>
+          </div>
+          <div class="movies-container" id="search-movies-container"></div>
+        </div>
+      </div>
+      <div class="watchlistPage hidden">
+        <div class="app-container">
+          <div class="watchlist-msg">
+            <p>Your watchlist is looking a little empty...</p>
+            <button onclick="goToSearchPage()">
+              <img id="add" src="./src/imgs/add.png" alt="add" />Let's add some
+              movies!
+            </button>
+          </div>
+          <div class="movies-container" id="watchlist-movies-container"></div>
+        </div>
       </div>
     </main>
     <footer>

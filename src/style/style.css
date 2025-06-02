@@ -119,28 +119,36 @@ nav button {
   text-align: center;
 }
 #message,
+.watchlist-msg p,
 .explore p {
   font-size: 1.5rem;
   margin-top: 0.5rem;
   color: #dfdddd;
   margin-bottom: 1rem;
 }
+.watchlist-msg #add,
 .explore #add {
   width: 18px;
 }
-.explore a {
+.watchlist-msg button {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  color: black;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   text-decoration: none;
+  margin: auto;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 .movies-container {
   margin-top: 5rem;
 }
-
+#watchlist-movies-container {
+  margin-top: 0;
+}
 /* Movie Card */
 .movie-card {
   display: flex;
@@ -160,6 +168,11 @@ nav button {
 }
 .movie-info {
   flex: 1;
+}
+.movie-info .info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .movie-details {
   display: flex;
@@ -194,6 +207,7 @@ nav button {
   font-size: 1.5rem;
   cursor: pointer;
 }
+.watchlist p,
 .watchlist button {
   font-size: 1rem;
   background-color: transparent;
@@ -259,9 +273,12 @@ footer a {
   }
 }
 @media (max-width: 480px) {
-  .movie-details,
   .movie-card {
     flex-direction: column;
+  }
+  .movie-details {
+    flex-direction: column-reverse;
+    margin-top: 0.5rem;
   }
   .movie-card .movie-poster {
     margin: 0 0 16px 0;
@@ -272,12 +289,36 @@ footer a {
   .description {
     text-align: center;
   }
+  .movie-info .info {
+    justify-content: center;
+  }
+  .movie-title {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  header {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .search-container input {
+    padding: 0.5rem 10px;
+    font-size: 15px;
+  }
+  .search-container button {
+    padding: 10px 0.5rem;
+    font-size: 16px;
+  }
 }
 /* Dark Mode */
 body.dark .movie-card,
 body.dark {
   background-color: #121212;
 }
+body.dark .watchlist-msg button,
+body.dark .watchlist p,
 body.dark .explore a,
 body.dark .movie-card .watchlist button,
 body.dark .movie-card .rating,
